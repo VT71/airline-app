@@ -1,7 +1,16 @@
 import React from 'react';
-import { AppBar, Container, Toolbar, Typography, Box } from '@mui/material';
+import {
+    AppBar,
+    Container,
+    Toolbar,
+    Typography,
+    Box,
+    useTheme,
+} from '@mui/material';
 
 function Header() {
+    const theme = useTheme();
+
     return (
         <AppBar>
             <Container>
@@ -34,8 +43,13 @@ function Header() {
                     }}
                 >
                     <Typography
+                        component={`a`}
+                        href={``}
                         sx={{
                             fontFamily: 'Michroma, sans-serif',
+                            fontSize: '1.4rem',
+                            textDecoration: 'none',
+                            color: `#fff`,
                         }}
                     >{`VT-AIR`}</Typography>
                     <Box
@@ -43,12 +57,39 @@ function Header() {
                             display: 'flex',
                             flexDirection: 'row',
                             alignItems: 'center',
-                            columnGap: '1rem',
+                            columnGap: '2rem',
                         }}
                     >
-                        <Typography>{`Help`}</Typography>
-                        <Typography>{`Sign Up`}</Typography>
-                        <Typography>{`Login`}</Typography>
+                        <Typography
+                            component={`a`}
+                            href={``}
+                            sx={{
+                                fontWeight: 'bold',
+                                fontSize: '1.1rem',
+                                textDecoration: 'none',
+                                color: `#fff`,
+                            }}
+                        >{`Help`}</Typography>
+                        <Typography
+                            component={`a`}
+                            href={``}
+                            sx={{
+                                fontWeight: 'bold',
+                                fontSize: '1.1rem',
+                                textDecoration: 'none',
+                                color: `#fff`,
+                            }}
+                        >{`Sign Up`}</Typography>
+                        <Typography
+                            component={`a`}
+                            href={``}
+                            sx={{
+                                fontWeight: 'bold',
+                                fontSize: '1.1rem',
+                                textDecoration: 'none',
+                                color: `#fff`,
+                            }}
+                        >{`Login`}</Typography>
                     </Box>
                 </Toolbar>
             </Container>
