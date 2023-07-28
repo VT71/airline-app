@@ -5,12 +5,14 @@ import './index.css';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import ErrorPage from './pages/ErrorPage.jsx';
 import { ThemeProvider, createTheme } from '@mui/material';
+import HomePage from './pages/HomePage.jsx';
 
 const router = createBrowserRouter([
     {
         path: '/',
         element: <App />,
         errorElement: <ErrorPage />,
+        children: [{ path: '/', element: <HomePage /> }],
     },
 ]);
 

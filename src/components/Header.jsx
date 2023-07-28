@@ -65,7 +65,6 @@ function Header() {
                             href={``}
                             sx={{
                                 fontWeight: 'bold',
-                                fontSize: '1.1rem',
                                 textDecoration: 'none',
                                 color: `#fff`,
                             }}
@@ -75,7 +74,6 @@ function Header() {
                             href={``}
                             sx={{
                                 fontWeight: 'bold',
-                                fontSize: '1.1rem',
                                 textDecoration: 'none',
                                 color: `#fff`,
                             }}
@@ -85,7 +83,6 @@ function Header() {
                             href={``}
                             sx={{
                                 fontWeight: 'bold',
-                                fontSize: '1.1rem',
                                 textDecoration: 'none',
                                 color: `#fff`,
                             }}
