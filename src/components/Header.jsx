@@ -5,11 +5,36 @@ import {
     Toolbar,
     Typography,
     Box,
+    IconButton,
+    Menu,
+    MenuItem,
     useTheme,
 } from '@mui/material';
+import responsiveStyle from '../lib/responsiveSettings';
+import MenuIcon from '@mui/icons-material/Menu';
 
 function Header() {
     const theme = useTheme();
+
+    const pages = ['Help', 'Sign Up', 'Login'];
+
+    const [anchorElNav, setAnchorElNav] = React.useState(null);
+    const [anchorElUser, setAnchorElUser] = React.useState(null);
+
+    const handleOpenNavMenu = (event) => {
+        setAnchorElNav(event.currentTarget);
+    };
+    const handleOpenUserMenu = (event) => {
+        setAnchorElUser(event.currentTarget);
+    };
+
+    const handleCloseNavMenu = () => {
+        setAnchorElNav(null);
+    };
+
+    const handleCloseUserMenu = () => {
+        setAnchorElUser(null);
+    };
 
     return (
         <AppBar>
@@ -22,24 +47,7 @@ function Header() {
                         flexDirection: 'row',
                         alignItems: 'center',
                         justifyContent: 'space-between',
-                        '@media (max-width: 599px)': {
-                            margin: '0 16px',
-                        },
-                        '@media (min-width: 600px)': {
-                            margin: '0 32px',
-                        },
-                        '@media (min-width: 905px)': {
-                            margin: '0 auto',
-                            width: '840px',
-                        },
-                        '@media (min-width: 1240px)': {
-                            margin: '0 200px',
-                            width: 'auto',
-                        },
-                        '@media (min-width: 1440px)': {
-                            margin: '0 auto',
-                            width: '1100px',
-                        },
+                        ...responsiveStyle,
                     }}
                 >
                     <Typography
@@ -58,6 +66,7 @@ function Header() {
                             flexDirection: 'row',
                             alignItems: 'center',
                             columnGap: '2rem',
+                            display: { xs: 'none', sm: 'flex' },
                         }}
                     >
                         <Typography
@@ -87,6 +96,53 @@ function Header() {
                                 color: `#fff`,
                             }}
                         >{`Login`}</Typography>
+                    </Box>
+                    <Box
+                        sx={{
+                            flexGrow: 1,
+                            justifyContent: 'flex-end',
+                            display: { xs: 'flex', sm: 'none' },
+                        }}
+                    >
+                        <IconButton
+                            size='large'
+                            aria-label='account of current user'
+                            aria-controls='menu-appbar'
+                            aria-haspopup='true'
+                            onClick={handleOpenNavMenu}
+                            color='inherit'
+                        >
+                            <MenuIcon />
+                        </IconButton>
+                        <Menu
+                            id='menu-appbar'
+                            anchorEl={anchorElNav}
+                            anchorOrigin={{
+                                vertical: 'bottom',
+                                horizontal: 'left',
+                            }}
+                            keepMounted
+                            transformOrigin={{
+                                vertical: 'top',
+                                horizontal: 'left',
+                            }}
+                            open={Boolean(anchorElNav)}
+                            onClose={handleCloseNavMenu}
+                            sx={{
+                                display: { xs: 'block', md: 'none' },
+                            }}
+                        >
+                            {pages.map((page, index) => (
+                                <MenuItem
+                                    key={index}
+                                    onClick={handleCloseNavMenu}
+                                >
+                                    <Typography textAlign='center'>
+                                        {page}
+                                    </Typography>
+                                </MenuItem>
+                            ))}
+                        </Menu>
                     </Box>
                 </Toolbar>
             </Container>
