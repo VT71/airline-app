@@ -62,7 +62,6 @@ function Header() {
                     >{`VT-AIR`}</Typography>
                     <Box
                         sx={{
-                            display: 'flex',
                             flexDirection: 'row',
                             alignItems: 'center',
                             columnGap: '2rem',
