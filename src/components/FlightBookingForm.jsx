@@ -8,12 +8,23 @@ import {
     MenuItem,
     FormControl,
     InputLabel,
+    IconButton,
+    Button,
 } from '@mui/material';
 import { useTheme } from '@mui/material';
 import { useState } from 'react';
 
+// Icons
+import AddCircleIcon from '@mui/icons-material/AddCircle';
+import RemoveCircleIcon from '@mui/icons-material/RemoveCircle';
+
 function FlightBookingForm() {
     const theme = useTheme();
+
+    const passengerCountButtonStyle = {
+        color: `${theme.palette.primary.main}`,
+        fontSize: '2rem',
+    };
 
     const destinations = {
         London: ['Berlin (BER)', 'Bucharest (OTP)', 'Chisinau (KIV)'],
@@ -25,13 +36,17 @@ function FlightBookingForm() {
     const [from, setFrom] = useState(null);
     const [to, setTo] = useState(null);
 
+    const [adults, setAdults] = useState(1);
+    const [children, setChildren] = useState(1);
+
     return (
         <form>
             <Card
                 sx={{
                     width: '400px',
                     boxSizing: 'border-box',
-                    padding: '0.8rem 1rem',
+                    padding: '1.2rem',
+                    borderRadius: '12px',
                 }}
             >
                 <Typography
@@ -50,7 +65,7 @@ function FlightBookingForm() {
                         rowGap: '1rem',
                     }}
                 >
-                    <FormControl fullWidth>
+                    <FormControl fullWidth required>
                         <InputLabel id='from-flight-selection-label'>
                             {`From`}
                         </InputLabel>
@@ -78,12 +93,11 @@ function FlightBookingForm() {
                             )}
                         </Select>
                     </FormControl>
-                    <FormControl fullWidth>
+                    <FormControl fullWidth required>
                         <InputLabel id='to-flight-selection-label'>
                             {`To`}
                         </InputLabel>
                         <Select
-                            required
                             labelId='to-flight-selection-label'
                             id='to-flight-selection-input'
                             value={to ? to : ''}
@@ -111,12 +125,138 @@ function FlightBookingForm() {
                         </Select>
                     </FormControl>
                     <TextField
-                        id='outlined-basic'
-                        label='Outlined'
+                        required
+                        InputLabelProps={{ shrink: true }}
+                        type={`date`}
+                        id='date-flight-selection-input'
+                        label='Date'
                         variant='outlined'
                         sx={{ width: '100%' }}
                     />
+                    <Box
+                        sx={{
+                            display: 'flex',
+                            flexDirection: 'row',
+                            alignItems: 'center',
+                            justifyContent: 'space-between',
+                        }}
+                    >
+                        <Box>
+                            <Box
+                                sx={{
+                                    display: 'flex',
+                                    flexDirection: 'row',
+                                    alignItems: 'center',
+                                }}
+                            >
+                                <Typography
+                                    sx={{
+                                        fontWeight: 'bold',
+                                        fontSize: '1.2rem',
+                                    }}
+                                >{`Adults`}</Typography>
+                                <IconButton
+                                    onClick={() => {
+                                        if (adults > 1) {
+                                            setAdults(
+                                                (prevCount) => prevCount - 1
+                                            );
+                                        }
+                                    }}
+                                >
+                                    <RemoveCircleIcon
+                                        sx={{
+                                            ...passengerCountButtonStyle,
+                                        }}
+                                    />
+                                </IconButton>
+
+                                <Typography
+                                    sx={{
+                                        fontWeight: 'bold',
+                                        fontSize: '1.2rem',
+                                    }}
+                                >{`${adults}`}</Typography>
+                                <IconButton
+                                    onClick={() => {
+                                        if (adults < 8) {
+                                            setAdults(
+                                                (prevCount) => prevCount + 1
+                                            );
+                                        }
+                                    }}
+                                >
+                                    <AddCircleIcon
+                                        sx={{
+                                            ...passengerCountButtonStyle,
+                                        }}
+                                    />
+                                </IconButton>
+                            </Box>
+                        </Box>
+                        <Box>
+                            <Box
+                                sx={{
+                                    display: 'flex',
+                                    flexDirection: 'row',
+                                    alignItems: 'center',
+                                }}
+                            >
+                                <Typography
+                                    sx={{
+                                        fontWeight: 'bold',
+                                        fontSize: '1.2rem',
+                                    }}
+                                >{`Children`}</Typography>
+                                <IconButton
+                                    onClick={() => {
+                                        if (children > 1) {
+                                            setChildren(
+                                                (prevCount) => prevCount - 1
+                                            );
+                                        }
+                                    }}
+                                >
+                                    <RemoveCircleIcon
+                                        sx={{
+                                            ...passengerCountButtonStyle,
+                                        }}
+                                    />
+                                </IconButton>
+                                <Typography
+                                    sx={{
+                                        fontWeight: 'bold',
+                                        fontSize: '1.2rem',
+                                    }}
+                                >{`${children}`}</Typography>
+
+                                <IconButton
+                                    onClick={() => {
+                                        if (children < 5) {
+                                            setChildren(
+                                                (prevCount) => prevCount + 1
+                                            );
+                                        }
+                                    }}
+                                >
+                                    <AddCircleIcon
+                                        sx={{
+                                            ...passengerCountButtonStyle,
+                                        }}
+                                    />
+                                </IconButton>
+                            </Box>
+                        </Box>
+                    </Box>
                 </Box>
+                <Button
+                    variant={`contained`}
+                    sx={{
+                        width: '100%',
+                        marginTop: '1.1rem',
+                        fontWeight: 'bold',
+                    }}
+                >{`Submit`}</Button>
             </Card>
         </form>
     );

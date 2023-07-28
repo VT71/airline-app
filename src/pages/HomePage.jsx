@@ -18,7 +18,9 @@ function HomePage() {
                 }}
             >
                 <Box sx={{ ...responsiveStyle }}>
-                    <FlightBookingForm />
+                    <Box sx={{ boxSizing: 'border-box', padding: '3rem 3rem' }}>
+                        <FlightBookingForm />
+                    </Box>
                 </Box>
             </Box>
         </Box>
