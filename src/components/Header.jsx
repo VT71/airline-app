@@ -52,7 +52,7 @@ function Header() {
                 >
                     <Typography
                         component={`a`}
-                        href={``}
+                        href={`/airline-app`}
                         sx={{
                             fontFamily: 'Michroma, sans-serif',
                             fontSize: '1.4rem',
@@ -70,7 +70,7 @@ function Header() {
                     >
                         <Typography
                             component={`a`}
-                            href={``}
+                            href={`#helpSectionHome`}
                             sx={{
                                 fontWeight: 'bold',
                                 textDecoration: 'none',
@@ -79,7 +79,7 @@ function Header() {
                         >{`Help`}</Typography>
                         <Typography
                             component={`a`}
-                            href={``}
+                            href={`/airline-app/signup`}
                             sx={{
                                 fontWeight: 'bold',
                                 textDecoration: 'none',

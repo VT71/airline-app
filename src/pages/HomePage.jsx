@@ -12,6 +12,7 @@ function HomePage() {
             <Box
                 sx={{
                     height: '100vh',
+                    maxHeight: '700px',
                     minHeight: 'fit-content',
                     width: '100%',
                     backgroundImage: 'url("./images/airport-view.jpg")',

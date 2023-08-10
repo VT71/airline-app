@@ -6,13 +6,17 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import ErrorPage from './pages/ErrorPage.jsx';
 import { ThemeProvider, createTheme } from '@mui/material';
 import HomePage from './pages/HomePage.jsx';
+import SignUpPage from './pages/SignUpPage.jsx';
 
 const router = createBrowserRouter([
     {
         path: '/airline-app',
         element: <App />,
         errorElement: <ErrorPage />,
-        children: [{ path: '/airline-app', element: <HomePage /> }],
+        children: [
+            { path: '/airline-app', element: <HomePage /> },
+            { path: '/airline-app/signup', element: <SignUpPage /> },
+        ],
     },
 ]);
 

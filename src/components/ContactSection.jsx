@@ -11,6 +11,7 @@ function ContactSection() {
 
     return (
         <Box
+            id={`helpSectionHome`}
             sx={{
                 backgroundColor: `${theme.palette.secondary.main}`,
                 marginTop: '2rem',
