@@ -4,6 +4,7 @@ import FlightBookingForm from '../components/FlightBookingForm';
 import responsiveStyle from '../lib/responsiveSettings';
 import DestinationsSection from '../components/DestinationsSection';
 import HelpSection from '../components/HelpSection';
+import ContactSection from '../components/ContactSection';
 
 function HomePage() {
     return (
@@ -27,6 +28,7 @@ function HomePage() {
             </Box>
             <DestinationsSection />
             <HelpSection />
+            <ContactSection />
         </Box>
     );
 }
