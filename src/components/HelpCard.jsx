@@ -50,7 +50,7 @@ function HelpCard({ title }) {
                     width: '100%',
                     height: '100px',
                     boxSizing: 'border-box',
-                    paddingY: '1rem',
+                    padding: '1rem',
                     display: 'flex',
                     flexDirection: 'row',
                     justifyContent: 'center',
@@ -63,6 +63,7 @@ function HelpCard({ title }) {
                         color: `${theme.palette.primary.main}`,
                         fontWeight: 'bold',
                         fontSize: '1.2rem',
+                        textAlign: 'center',
                     }}
                 >
                     {title}

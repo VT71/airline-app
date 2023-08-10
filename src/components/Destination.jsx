@@ -9,8 +9,8 @@ function Destination({ destination }) {
         return (
             <Card
                 sx={{
-                    height: '240px',
-                    width: '200px',
+                    height: '250px',
+                    width: '30%',
                     borderRadius: '15px',
                     backgroundColor: `${theme.palette.secondary.main}`,
                     position: 'relative',
@@ -38,7 +38,7 @@ function Destination({ destination }) {
                         sx={{
                             color: `${theme.palette.primary.main}`,
                             fontWeight: 'bold',
-                            fontSize: '1.3rem',
+                            fontSize: '1.4rem',
                         }}
                     >
                         {destination.name &&
