@@ -2,6 +2,7 @@ import React from 'react';
 import { Box } from '@mui/material';
 import FlightBookingForm from '../components/FlightBookingForm';
 import responsiveStyle from '../lib/responsiveSettings';
+import DestinationsSection from '../components/DestinationsSection';
 
 function HomePage() {
     return (
@@ -23,6 +24,7 @@ function HomePage() {
                     </Box>
                 </Box>
             </Box>
+            <DestinationsSection />
         </Box>
     );
 }
