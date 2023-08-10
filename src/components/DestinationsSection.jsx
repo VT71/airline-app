@@ -3,9 +3,15 @@ import { Box, TextField, Typography } from '@mui/material';
 import responsiveStyle from '../lib/responsiveSettings';
 import Destination from './Destination';
 import EmojiPicker from 'emoji-picker-react';
+import SectionHeading from './SectionHeading';
 
 function DestinationsSection() {
-    const destinations = ['london', 'berlin', 'bucharest', 'chisinau'];
+    const destinations = [
+        { name: 'london', priceFrom: 29.99 },
+        { name: 'berlin', priceFrom: 19.99 },
+        { name: 'bucharest', priceFrom: 29.99 },
+        { name: 'chisinau', priceFrom: 19.99 },
+    ];
 
     return (
         <Box
@@ -13,7 +19,7 @@ function DestinationsSection() {
                 ...responsiveStyle,
             }}
         >
-            <Typography>{`Our Destinations`}</Typography>
+            <SectionHeading text='Our Destinations' />
             <Box
                 sx={{
                     display: 'flex',
