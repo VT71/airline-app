@@ -9,10 +9,10 @@ import HomePage from './pages/HomePage.jsx';
 
 const router = createBrowserRouter([
     {
-        path: '/',
+        path: '/airline-app',
         element: <App />,
         errorElement: <ErrorPage />,
-        children: [{ path: '/', element: <HomePage /> }],
+        children: [{ path: '/airline-app', element: <HomePage /> }],
     },
 ]);
 

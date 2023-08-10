@@ -6,7 +6,7 @@ function SectionHeading({ text }) {
     const theme = useTheme();
 
     return (
-        <Box sx={{ marginY: '1rem' }}>
+        <Box sx={{ marginTop: '2rem', marginBottom: '1.5rem' }}>
             <Typography
                 sx={{
                     color: `${theme.palette.primary.main}`,
